@@ -3,7 +3,10 @@ from collections import deque
 direction = [(1,0), (0,1), (-1,0), (0,-1)]
 N,M = map(int, sys.stdin.readline().split())
 result = [[100001]*M for _ in range(N)]
-Maze = [[int(i) for i in sys.stdin.readline() if i != '\n'] for _ in range(N)]
+# 规过 1
+# Maze = [[int(i) for i in sys.stdin.readline() if i != '\n'] for _ in range(N)]
+# 规过 2
+Maze = [list(map(int, list(input()))) for _ in range(N) ]
 q = deque()
 
 def check(x,y):
