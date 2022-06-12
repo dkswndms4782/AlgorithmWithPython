@@ -37,3 +37,13 @@
 | **2022.06.11일(토)** |    [ABCDE](https://www.acmicpc.net/problem/13023)    | DFS | 1) 처음 풀었을 때 seen을 DFS함수의 매개변수로 넣었는데, 재귀를 사용하면서 전역변수인 seen의 배열의 값이 c++처럼 함수 내에서만 바뀌는게 아니라 전체적으로 바뀌어 문제가 됐었다.<br /> 2)깊은 복사 : arr = [[False]*n for _ in range(n)]  <br />   얕은 복사 : [[False] * n] * n <br />ex) {a = [[1]*3]*2} == {a = [[1,1,1],[1,1,1]]}<br />  -> {if: a[0][0] = 3} => {a = [[3,1,1],[3,1,1]]} <br />3) sys.exit()를 사용했으나 오류가 났는데, 이는 VSCode에서 언어 인식에서 오류가 난 것이었음. 언어를 바꿔주니 해결.  |
 | **2022.06.11일(토)** |    [미로탐색](https://www.acmicpc.net/problem/2178)    | BFS | ***1) And와 &*** <br /> ***And*** : lazy evaluation.<br/> -> if the first statement is False, it does not check the second statement. and returns False immediately <br/> ***&*** : bitwise<br/> [참고](https://www.geeksforgeeks.org/difference-between-and-and-in-python/)<br/> 2)sys.stdin.readline() & input()<br/> input() : 입력이 주어질 때 "10101"이 주어진다면 저 값만 받아옴 <br/> sys.stdin.readline() : 그 줄을 읽어오는 것이기 때문에 줄바꿈값까지 받아오게 됨. list로 만든 후 int함수를 적용하면 '/n'에는 int함수를 적용할 수 없기때문에 에러가 난다. |
 | **2022.06.11일(토)** |    [토마토](https://www.acmicpc.net/problem/7576)    | BFS | |
+
+
+> **기초 - BFS**
+
+
+|                      |                                      #문제                                       |                                     #알고리즘 설명                                      |                                        #배운점                                        |
+| :------------------: | :-------------------------------------------------------------------------------: | :-------------------------------------------------------------------------: | :------------------------------------------------------------------------------: |
+| **2022.06.12일(일)** |    [숨바꼭질](https://www.acmicpc.net/problem/1697)    | BFS | seen배열의 크기를 고정되지 않은 값인 K,N으로 하니 인덱스 오류가 났다. 최대값으로 설정하는게 좋을 것 같다.<br/>위치가 음수의 값이 되는 경우를 생각을 못했다.<br/>for nxt in [now+1. now-1, now*2] 이렇게 효율적으로 코드를 짤 수 있는 것을 배웠다.(이전에는 if문으로 3개의 케이스를 처리해주었다.) |
+
+
