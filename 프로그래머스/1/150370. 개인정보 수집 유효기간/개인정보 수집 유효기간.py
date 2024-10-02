@@ -1,20 +1,14 @@
+def days(today):
+    y,m,d = map(int, today.split("."))
+    return y*12*28 + m*28 + d
 def solution(today, terms, privacies):
-    term = {t.split()[0]:int(t.split()[1]) for t in terms}
+    term = {t[0]:int(t[2:]) for t in terms}
     answer = []
-    for i in range(len(privacies)):
-        time, user = privacies[i].split()
-        yt, mt, dt = map(int, time.split("."))
-        valid = term[user]
-        if (mt+valid) > 12:
-            yt += (mt+valid)//12
-            mt = (mt+valid)%12
-            if mt==0: 
-                mt=12
-                yt-=1
-        else: 
-            mt += valid
-        expire_date = f"{yt}." + (f"{mt}." if mt>9 else f"0{mt}.") + (f"{dt}" if dt>9 else f"0{dt}")
-        if today >= expire_date:
+    today = days(today)
+    for i, priv in enumerate(privacies):
+        priv_days = days(priv[:-2])
+        contract_days = term[priv[-1]]*28
+        if priv_days+contract_days <= today:
             answer.append(i+1)
     return answer
         
